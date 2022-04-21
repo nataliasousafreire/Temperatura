@@ -1,5 +1,9 @@
 
 pipeline {
+     stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
   agent {
      dockerfile {
         filename 'dockerfile'
@@ -7,10 +11,6 @@ pipeline {
      }
    }
    stages {
-      stage('Initialize'){
-        def dockerHome = tool 'myDocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-    }
      stage('build'){
         steps {
           sh 'git version'
