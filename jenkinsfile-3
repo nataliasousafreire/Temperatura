@@ -1,10 +1,18 @@
+
 pipeline {
-  agent { dockerfile true }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'java --version'
-      }
-    }
-  }
+  agent {
+     dockerfile {
+        filename 'dockerfile'
+
+     }
+   }
+   stages {
+     stage('build'){
+        steps {
+          sh 'git version'
+        }
+     } 
+   }
 }
+
+
