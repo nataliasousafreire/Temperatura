@@ -1,3 +1,3 @@
 FROM openjdk:8
-EXPOSE 8002
+RUN apk add -U git curl
 ENTRYPOINT ["java", "-jar", "Conversor.java"]
